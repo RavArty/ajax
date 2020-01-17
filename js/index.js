@@ -11,16 +11,34 @@ console.log('Hello from the JavaScript console!');
 // });
 // Add another console log here, outside your AJAX request
 
-const fetchSuccess = data => console.log(data);
-const fetchError = err => console.log(err);
+// const fetchSuccess = data => console.log(data);
+// const fetchError = err => console.log(err);
 
-const fetchData = () =>
-  $.ajax({
-    url:
-      'http://api.openweathermap.org/data/2.5/weather?q=new%20york,US&appid=bcb83c4b54aee8418983c2aff3073b3b'
-  });
-// Note the implicit return!
+// const fetchData = () =>
+//   $.ajax({
+//     url:
+//       'http://api.openweathermap.org/data/2.5/weather?q=new%20york,US&appid=bcb83c4b54aee8418983c2aff3073b3b'
+//   });
+// // Note the implicit return!
 
-fetchData()
-  .then(fetchSuccess)
-  .fail(fetchError);
+// fetchData()
+//   .then(fetchSuccess)
+//   .fail(fetchError);
+
+console.log('Hello from the JavaScript console!');
+
+$.ajax({
+  type: 'GET',
+  url:
+    'http://api.openweathermap.org/data/2.5/weather' +
+    '?q=London,uk&appid=bcb83c4b54aee8418983c2aff3073b3b',
+  success(data) {
+    console.log('We have your weather!');
+    console.log(data);
+  },
+  error() {
+    console.error('An error occurred.');
+  }
+});
+
+console.log('THE AJAX has been dispatched.');
